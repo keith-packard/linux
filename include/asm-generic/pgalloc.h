@@ -167,11 +167,13 @@ static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
 }
 #endif
 
+#ifndef __HAVE_ARCH_PUD_FREE
 static inline void pud_free(struct mm_struct *mm, pud_t *pud)
 {
 	BUG_ON((unsigned long)pud & (PAGE_SIZE-1));
 	free_page((unsigned long)pud);
 }
+#endif
 
 #endif /* CONFIG_PGTABLE_LEVELS > 3 */
 

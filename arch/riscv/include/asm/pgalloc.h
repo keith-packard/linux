@@ -11,6 +11,8 @@
 #include <asm/tlb.h>
 
 #ifdef CONFIG_MMU
+#define __HAVE_ARCH_PUD_ALLOC_ONE
+#define __HAVE_ARCH_PUD_FREE
 #include <asm-generic/pgalloc.h>
 
 static inline void pmd_populate_kernel(struct mm_struct *mm,
